@@ -1,0 +1,6 @@
+opencv-python
+numpy
+tensorflow
+uvicorn
+gunicorn
+python-multipart
