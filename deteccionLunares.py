@@ -14,7 +14,6 @@ model_path = "proyectomoleScanner.h5"
 model = load_model(model_path)
 
 def predict_image(file):
-   #leer la imagen con PIL y convertirla en un array NumPy
    img = img.resize(100,100)
    img = np.expand_dims(img, axis=0) / 255.0 #normalizar la imagen
    prediction = model.predict(img)
