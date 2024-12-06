@@ -4,7 +4,6 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from fastapi import FastAPI, UploadFile, File
 import uvicorn
-from PIL import Image
 
 #evitar logs innecesarios de tensorflow
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Suprime los logs de nivel INFO
@@ -16,7 +15,6 @@ model = load_model(model_path)
 
 def predict_image(file):
    #leer la imagen con PIL y convertirla en un array NumPy
-   img = Image.open(file).convert('RGB') #probar convertir a RGB
    img = img.resize(100,100)
    img = np.expand_dims(img, axis=0) / 255.0 #normalizar la imagen
    prediction = model.predict(img)
